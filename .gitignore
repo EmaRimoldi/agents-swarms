@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.venv/
+venv/
+
+# uv
+.python-version
+
+# Experiment runs (large, generated)
+runs/
+
+# Secrets / keys
+.env
+*.env
+.autoresearch-key
+ENSUE_API_KEY
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# autoresearch is tracked as a git submodule — do not ignore
+# autoresearch/
+
+# Misc
+*.log
+.DS_Store
