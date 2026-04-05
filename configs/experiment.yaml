@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────────────────────────
+#  Swarm Experiment Configuration
+#  Usage: run-swarm --config configs/experiment.yaml
+# ─────────────────────────────────────────────────────────────────
+
+experiment:
+  id: null          # null = auto-generate timestamp-based ID
+  mode: swarm
+  runs_dir: runs
+
+# ── Agent settings ────────────────────────────────────────────────
+agents:
+  n: 2
+  model: claude-haiku-4-5-20251001
+  time_budget_minutes: 20
+  train_time_budget_seconds: 300
+  temperature: null
+  cuda_devices: null
+
+  overrides: []
+  # Example — pin agents to specific GPUs:
+  # overrides:
+  #   - agent_id: agent_0
+  #     cuda_device: "0"
+  #   - agent_id: agent_1
+  #     cuda_device: "1"
+
+# ── SLURM settings ────────────────────────────────────────────────
+slurm:
+  partition: pi_tpoggio
+  gres: gpu:1
+  time: "00:30:00"
+
+# ── Template files ────────────────────────────────────────────────
+templates:
+  system_prompt: templates/agent_system_prompt.md
+  first_message: templates/agent_first_message.md
+
+# ── Swarm settings ────────────────────────────────────────────────
+swarm:
+  shared_memory_file: shared_memory.jsonl
+  sync_interval_seconds: 10
+  max_context_entries: 20
