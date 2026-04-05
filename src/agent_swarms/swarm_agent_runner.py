@@ -3,10 +3,9 @@
 Changes vs ClaudeAgentRunner:
 1. SINGLE_TURN_MODE = True: each agent runs as one long claude --print call.
 2. _build_env() adds SWARM_MEMORY_PATH so coordinator.py works inside Claude.
-3. _watch_workspace_events() auto-writes every completed val_bpb to the blackboard
-   as ENTRY_RESULT (safeguard in case the agent forgets to call publish).
-   The agent's explicit `python coordinator.py publish` call is still the primary
-   path and will write a duplicate ENTRY_RESULT — this is intentional and harmless.
+3. _watch_workspace_events() logs completed runs to run_agent.log only.
+   Publishing to the blackboard is done exclusively by the agent via coordinator.py
+   to avoid duplicate ENTRY_RESULT entries.
 
 Everything else (budget tracking, SIGTERM handling, SLURM watchers)
 is inherited from ClaudeAgentRunner unchanged.
@@ -36,7 +35,7 @@ from agent_swarms.agents.claude_agent_runner import (  # noqa: E402
     _dump_slurm_failure_logs,
 )
 from agent_swarms.config import AgentConfig  # noqa: E402
-from agent_swarms.shared_memory import SharedMemory, ENTRY_RESULT  # noqa: E402
+from agent_swarms.shared_memory import SharedMemory  # noqa: E402
 
 
 class SwarmAgentRunner(ClaudeAgentRunner):
@@ -208,17 +207,6 @@ class SwarmAgentRunner(ClaudeAgentRunner):
                         f"[{agent_id}] Training run #{run_count} done — "
                         f"val_bpb: {val_bpb} (elapsed: {elapsed})",
                     )
-                    # Auto-publish to shared memory as safeguard
-                    if self.shared_memory is not None:
-                        try:
-                            self.shared_memory.write(agent_id, ENTRY_RESULT, {
-                                "val_bpb": float(val_bpb),
-                                "run": run_count,
-                                "elapsed": elapsed,
-                                "source": "watcher",
-                            })
-                        except Exception:
-                            pass
                 else:
                     status = ""
                     try:
