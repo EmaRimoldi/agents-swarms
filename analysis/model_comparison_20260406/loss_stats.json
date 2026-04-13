@@ -1,0 +1,34 @@
+{
+  "haiku_run1": {
+    "model": "Haiku 4.5",
+    "val_bpb": 1.041477,
+    "num_steps": 29738,
+    "initial_loss": 9.010782,
+    "final_loss": 2.928076,
+    "improvement": 6.082706000000001
+  },
+  "haiku_run2": {
+    "model": "Haiku 4.5 (Run 2)",
+    "val_bpb": 1.044341,
+    "num_steps": 25685,
+    "initial_loss": 9.010771,
+    "final_loss": 2.964533,
+    "improvement": 6.046238000000001
+  },
+  "sonnet": {
+    "model": "Sonnet 4.6",
+    "val_bpb": 1.044216,
+    "num_steps": 32970,
+    "initial_loss": 9.010771,
+    "final_loss": 2.912361,
+    "improvement": 6.098409999999999
+  },
+  "opus": {
+    "model": "Opus 4.6",
+    "val_bpb": 1.044304,
+    "num_steps": 25233,
+    "initial_loss": 9.010807,
+    "final_loss": 2.935401,
+    "improvement": 6.075405999999999
+  }
+}

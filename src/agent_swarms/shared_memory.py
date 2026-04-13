@@ -360,10 +360,19 @@ class SharedMemory:
 
     # ── Formatting for continuation messages ─────────────────────────────────
 
+    # ── Opt-in byte-identical payload dump (§9.1 novel instrumentation) ──
+    # Set SharedMemory._dump_target to a Path and every call to
+    # format_for_context will append the rendered string to that file,
+    # byte-identically to what is returned to the caller. Off by default;
+    # production code is unaffected.
+    _dump_target: "Optional[Path]" = None
+
     def format_for_context(self, entries: list[dict]) -> str:
         """Format event-log entries as a compact text block for agent messages."""
         if not entries:
-            return ""
+            rendered = ""
+            self._maybe_dump(rendered)
+            return rendered
 
         lines = ["=== SWARM UPDATE (from other agents) ==="]
         for entry in entries:
@@ -404,7 +413,24 @@ class SharedMemory:
             "Avoid hypotheses already tried. "
             "Run `python coordinator.py think` for full swarm state."
         )
-        return "\n".join(lines)
+        rendered = "\n".join(lines)
+        self._maybe_dump(rendered)
+        return rendered
+
+    def _maybe_dump(self, rendered: str) -> None:
+        """Byte-identical append of the rendered payload for §9.1 G^W
+        measurement. Opt-in via ``SharedMemory._dump_target``.
+        """
+        target = type(self)._dump_target
+        if target is None:
+            return
+        ts = datetime.now(timezone.utc).isoformat()
+        header = f"\n===== DUMP {ts} bytes={len(rendered.encode('utf-8'))} =====\n"
+        with open(target, "a", encoding="utf-8") as f:
+            f.write(header)
+            f.write(rendered)
+            if not rendered.endswith("\n"):
+                f.write("\n")
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

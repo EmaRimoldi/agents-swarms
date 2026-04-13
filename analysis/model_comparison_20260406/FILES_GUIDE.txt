@@ -1,0 +1,299 @@
+================================================================================
+                         ANALYSIS FILES GUIDE
+                    What Each File Contains & How to Use
+================================================================================
+
+📋 DOCUMENT HIERARCHY
+─────────────────────────────────────────────────────────────────────────────
+
+START HERE (Everyone)
+│
+├─ 00_START_HERE.txt
+│  └─ First stop for navigation and file overview
+│
+├─ QUICK_FACTS.txt  
+│  └─ 5-minute summary: key numbers and decision guide
+│
+└─ Choose your path:
+   │
+   ├─ Path A: Executive Summary (10 min)
+   │  └─ CONCLUSIONS.md → Direct answer and recommendation
+   │
+   ├─ Path B: Full Analysis (30 min)
+   │  └─ README.md → Complete detailed report
+   │     └─ COMPLETE_ANALYSIS_SUMMARY.md → Bridges performance + loss
+   │
+   └─ Path C: Deep Dive (60+ min)
+      ├─ ANALYSIS.txt → Machine-generated details
+      ├─ LOSS_INSIGHTS.md → Training dynamics analysis
+      ├─ LOSS_VISUAL_SUMMARY.txt → Loss curve patterns
+      └─ timeline.txt → Temporal breakdown
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+📄 SUMMARY DOCUMENTS (What to read)
+─────────────────────────────────────────────────────────────────────────────
+
+00_START_HERE.txt (8.1 KB)
+  • Purpose: Navigation and file overview
+  • Read time: 5 minutes
+  • Contains: Quick answer, file descriptions, multiple reading paths
+  • Best for: First-time visitors, orientation
+
+QUICK_FACTS.txt (11 KB)
+  • Purpose: Concise summary of all key findings
+  • Read time: 5 minutes
+  • Contains: Rankings, decision guide, key numbers, what it means
+  • Best for: Decision makers, executives, quick reference
+
+CONCLUSIONS.md (6.4 KB)
+  • Purpose: Executive summary with decision matrix
+  • Read time: 10 minutes
+  • Contains: Rankings, why Haiku wins, decision matrix, recommendations
+  • Best for: Understanding the reasoning and trade-offs
+
+README.md (6.1 KB)
+  • Purpose: Detailed report on performance comparison
+  • Read time: 15 minutes
+  • Contains: Full findings, statistical analysis, visualizations guide
+  • Best for: Technical readers, thorough understanding
+
+COMPLETE_ANALYSIS_SUMMARY.md (10 KB)
+  • Purpose: Bridge between performance (BPB) and training (loss) metrics
+  • Read time: 15 minutes
+  • Contains: The paradox explained, correlation analysis, complete table
+  • Best for: Understanding WHY Haiku wins, not just THAT it wins
+
+INDEX.md (6.2 KB)
+  • Purpose: File index and navigation guide
+  • Read time: 5 minutes
+  • Contains: Complete file listing, descriptions, quick links
+  • Best for: Finding specific information, file reference
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+📊 ANALYSIS DOCUMENTS (Detailed findings)
+─────────────────────────────────────────────────────────────────────────────
+
+ANALYSIS.txt (2.1 KB)
+  • Purpose: Machine-generated detailed statistical analysis
+  • Read time: 10 minutes
+  • Contains: Per-model statistics, comparative analysis, key findings
+  • Best for: Statistical verification, detailed metrics
+
+LOSS_ANALYSIS.txt (2.3 KB)
+  • Purpose: Loss curve statistics and comparative analysis
+  • Read time: 10 minutes
+  • Contains: Loss statistics, convergence rates, key insights
+  • Best for: Understanding training dynamics
+
+LOSS_INSIGHTS.md (8.8 KB)
+  • Purpose: Deep analysis of training loss trajectories
+  • Read time: 20 minutes
+  • Contains: Loss decay, convergence, loss-to-BPB relationship, phases
+  • Best for: Understanding why loss patterns matter
+
+LOSS_VISUAL_SUMMARY.txt (11 KB)
+  • Purpose: ASCII visualization of loss patterns
+  • Read time: 15 minutes
+  • Contains: Visual graphs, trajectory shapes, key numbers, bottom line
+  • Best for: Quick visual understanding without looking at PNG files
+
+timeline.txt (3.8 KB)
+  • Purpose: Temporal breakdown of experiment execution
+  • Read time: 5 minutes
+  • Contains: Timeline visualization, temporal observations
+  • Best for: Understanding when experiments ran, duration details
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎨 VISUALIZATION FILES (PNG images)
+─────────────────────────────────────────────────────────────────────────────
+
+Performance Metrics:
+│
+├─ comparison_metrics.png (352 KB)
+│  └─ 4-panel dashboard: BPB, runs, duration, efficiency
+│     Visual: Bar charts showing model rankings
+│     Use: Quick visual comparison of all metrics
+│
+├─ baseline_improvement.png (129 KB)
+│  └─ Horizontal bar chart: % improvement from baseline
+│     Visual: Shows 5.2-5.5% improvement range
+│     Use: Show stakeholders how much each model beats baseline
+│
+└─ quality_vs_efficiency.png (157 KB)
+   └─ Scatter plot: Quality vs efficiency trade-off
+      Visual: Shows Haiku dominates upper-left (best in both)
+      Use: Visualize the quality-speed balance
+
+
+Loss Curves:
+│
+├─ loss_curves_individual.png (471 KB)
+│  └─ 4 separate subplots: one per experiment
+│     Visual: Individual loss trajectories over steps
+│     Use: See each model's training in detail
+│
+├─ loss_curves_comparison.png (318 KB)
+│  └─ Overlaid loss curves: all models on same plot
+│     Visual: Direct visual comparison of convergence speed
+│     Use: Compare convergence patterns side-by-side
+│
+├─ loss_initial_vs_final.png (118 KB)
+│  └─ Bar chart: initial vs final loss comparison
+│     Visual: Shows final loss is tightly clustered (0.053 range)
+│     Use: See how similar final states are
+│
+└─ loss_improvement_rate.png (142 KB)
+   └─ Bar chart: % loss improvement achieved
+      Visual: Shows 67-68% improvement for all models
+      Use: Demonstrate consistent training quality
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+💾 DATA FILES (Machine-readable)
+─────────────────────────────────────────────────────────────────────────────
+
+summary_table.csv (307 B)
+  • Format: CSV (Excel/Sheets compatible)
+  • Contents: BPB, baseline improvement, runs, duration, run time, efficiency
+  • Use: Import into Excel for further analysis or reporting
+  • Columns: Experiment, Model, Best BPB, Beats Baseline, Total Runs, etc.
+
+raw_data.json (2.3 KB)
+  • Format: JSON (machine-readable)
+  • Contents: All experiment data: model, BPB, dates, metrics
+  • Use: Feed to your analysis pipeline or data tools
+  • Keys: Start/end times, BPB, efficiency metrics
+
+loss_stats.json (772 B)
+  • Format: JSON (machine-readable)
+  • Contents: Training loss statistics: initial/final loss, steps, improvement
+  • Use: Analyze loss metrics separately
+  • Keys: num_steps, initial_loss, final_loss, improvement
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+🔧 CODE FILES (Reproducible)
+─────────────────────────────────────────────────────────────────────────────
+
+analysis.py (15 KB)
+  • Language: Python 3
+  • Purpose: Extract and visualize performance metrics
+  • Use: Run `uv run python analysis.py` to regenerate all analysis
+  • Dependencies: pandas, matplotlib, numpy
+  • Produces: comparison_metrics.png, baseline_improvement.png, etc.
+  • Customization: Edit EXPERIMENTS dict to change data sources
+
+loss_analysis.py (16 KB)
+  • Language: Python 3
+  • Purpose: Extract and visualize loss curve data
+  • Use: Run `uv run python loss_analysis.py` to regenerate loss analysis
+  • Dependencies: re, json, matplotlib, numpy
+  • Produces: loss_curves_*.png, LOSS_ANALYSIS.txt, loss_stats.json
+  • Customization: Edit EXPERIMENTS dict to change log file paths
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎯 RECOMMENDED READING SEQUENCES
+─────────────────────────────────────────────────────────────────────────────
+
+FOR EXECUTIVES (15 min)
+  1. QUICK_FACTS.txt (5 min)
+  2. CONCLUSIONS.md (10 min)
+  → Decision: Use Haiku
+
+FOR TECHNICAL LEADS (30 min)
+  1. QUICK_FACTS.txt (5 min)
+  2. README.md (15 min)
+  3. View: comparison_metrics.png + quality_vs_efficiency.png (5 min)
+  4. COMPLETE_ANALYSIS_SUMMARY.md (5 min)
+  → Understanding: Why Haiku wins, trade-offs, implications
+
+FOR DATA SCIENTISTS (60 min)
+  1. COMPLETE_ANALYSIS_SUMMARY.md (15 min)
+  2. LOSS_INSIGHTS.md (20 min)
+  3. ANALYSIS.txt + LOSS_ANALYSIS.txt (10 min)
+  4. View all PNG files (10 min)
+  5. Review loss_analysis.py (5 min)
+  → Deep understanding: Loss dynamics, convergence, generalization
+
+FOR RESEARCHERS (90+ min)
+  1. All documents in order
+  2. All visualizations
+  3. Code review: analysis.py + loss_analysis.py
+  4. Modify analysis.py to create new visualizations
+  → Publication-ready deep dive
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+🔍 FINDING SPECIFIC INFORMATION
+─────────────────────────────────────────────────────────────────────────────
+
+Question: "Which model is best?"
+→ QUICK_FACTS.txt (top section)
+
+Question: "Why does Haiku win despite smaller size?"
+→ COMPLETE_ANALYSIS_SUMMARY.md (The Paradox section)
+
+Question: "How do loss curves compare?"
+→ LOSS_VISUAL_SUMMARY.txt or view loss_curves_comparison.png
+
+Question: "What's the exact BPB for each model?"
+→ CONCLUSIONS.md (table at top) or summary_table.csv
+
+Question: "How stable is Haiku's performance?"
+→ COMPLETE_ANALYSIS_SUMMARY.md (Consistency section)
+
+Question: "How fast does each model train?"
+→ QUICK_FACTS.txt (Efficiency rankings) or loss_analysis.py
+
+Question: "How much better is Haiku than baseline?"
+→ baseline_improvement.png or README.md
+
+Question: "What does final loss tell us?"
+→ LOSS_INSIGHTS.md (Loss-to-BPB Relationship section)
+
+Question: "Are all models equally stable during training?"
+→ LOSS_VISUAL_SUMMARY.txt (Loss Stability section)
+
+Question: "Can I use this analysis in a presentation?"
+→ Use CONCLUSIONS.md + all PNG files for slides
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+📦 SUMMARY: What You Have
+
+22 files total:
+  • 10 document files (guides, analysis, summaries)
+  • 7 visualization files (PNG charts)
+  • 3 data files (CSV, JSON for export)
+  • 2 code files (reproducible Python analysis)
+
+Total content: ~2.8 MB
+Reading time: 5 minutes (quick) to 2 hours (thorough)
+Reproducibility: 100% (all code and data provided)
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+🚀 GET STARTED
+
+Step 1: Read 00_START_HERE.txt
+Step 2: Choose your reading path (Executive, Technical, or Deep Dive)
+Step 3: Start with QUICK_FACTS.txt or CONCLUSIONS.md
+Step 4: View PNG visualizations
+Step 5: Deep dive into LOSS_INSIGHTS.md if interested in training dynamics
+
+Questions? Check INDEX.md for complete file descriptions.
+
+Generated: April 6, 2026

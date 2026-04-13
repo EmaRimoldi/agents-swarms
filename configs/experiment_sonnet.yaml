@@ -1,29 +1,22 @@
 # ─────────────────────────────────────────────────────────────────
-#  Swarm Experiment Configuration
-#  Usage: run-swarm --config configs/experiment.yaml
+#  Swarm Experiment — claude-sonnet-4-6 (2 agents, 2 h)
 # ─────────────────────────────────────────────────────────────────
 
 experiment:
-  id: null          # null = auto-generate timestamp-based ID
+  id: null          # auto-generate timestamp-based ID
   mode: swarm
   runs_dir: runs
 
 # ── Agent settings ────────────────────────────────────────────────
 agents:
   n: 2
-  model: claude-haiku-4-5-20251001
+  model: claude-sonnet-4-6
   time_budget_minutes: 120
   train_time_budget_seconds: 300
   temperature: null
   cuda_devices: null
 
   overrides: []
-  # Example — pin agents to specific GPUs:
-  # overrides:
-  #   - agent_id: agent_0
-  #     cuda_device: "0"
-  #   - agent_id: agent_1
-  #     cuda_device: "1"
 
 # ── SLURM settings ────────────────────────────────────────────────
 slurm:

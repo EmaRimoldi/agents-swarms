@@ -1,0 +1,75 @@
+================================================================================
+EXPERIMENT TIMELINE
+================================================================================
+
+Timeline of 4 experiments conducted between April 5-6, 2026:
+
+April 5, 2026
+─────────────────────────────────────────────────────────────────────────────
+02:28 ─────────────────────────────── 04:28  [Haiku Run 1]
+│                                           │
+│ exp_20260405_022850                        │
+│ • Duration: ~2 hours (119 min)             │
+│ • Runs: 27 (agent_0: 14, agent_1: 13)    │
+│ • Best BPB: 1.041477 ⭐ BEST OVERALL     │
+│ • Improvement: +5.50% over baseline       │
+│                                            │
+│                                            │
+12:46 ────────────────────────────── 14:46  [Haiku Run 2]
+│                                          │
+│ exp_20260405_124604                       │
+│ • Duration: ~2 hours (120 min)            │
+│ • Runs: 28 (agent_0: 14, agent_1: 14)   │
+│ • Best BPB: 1.044341                      │
+│ • Improvement: +5.24% over baseline       │
+
+
+April 6, 2026
+─────────────────────────────────────────────────────────────────────────────
+02:41 ─────────────────────────────── 04:46  [Sonnet 4.6]
+│                                          │
+│ exp_20260406_024115                      │
+│ • Duration: ~2 hours (125 min)           │
+│ • Runs: 29 (agent_0: 13, agent_1: 16)  │
+│ • Best BPB: 1.044216                     │
+│ • Improvement: +5.25% over baseline      │
+│                                          │
+│                                          │
+04:41 ─────────────────────────────── 06:41  [Opus 4.6]
+│                                          │
+│ exp_20260406_044120                      │
+│ • Duration: ~2 hours (120 min)           │
+│ • Runs: 22 (agent_0: 11, agent_1: 11)  │
+│ • Best BPB: 1.044304                     │
+│ • Improvement: +5.24% over baseline      │
+
+
+================================================================================
+KEY TEMPORAL OBSERVATIONS
+================================================================================
+
+1. ALL EXPERIMENTS RAN FOR ~2 HOURS (119-125 minutes)
+   - This matches the configured time budget (120 minutes per agent)
+   - Total wall-clock time across all 4 experiments: ~10 hours
+
+2. RUN COMPLETION RATES
+   - Haiku: ~0.226 runs/minute (27-28 runs in 120 min)
+   - Sonnet: ~0.232 runs/minute (29 runs in 125 min)
+   - Opus: ~0.184 runs/minute (22 runs in 120 min)
+   
+   → Haiku & Sonnet are 26% more efficient than Opus
+
+3. SEQUENTIAL SCHEDULING
+   - Experiments were NOT run in parallel
+   - Timeline: Haiku run 1 → Haiku run 2 → Sonnet → Opus
+   - Total experiment time: ~10 hours to complete all 4
+
+4. CONSISTENCY ACROSS TIME
+   - First Haiku run (Apr 5 early): 1.041477 (BEST)
+   - Second Haiku run (Apr 5 afternoon): 1.044341 (SECOND BEST)
+   - Time gap: ~10 hours
+   - Difference: 0.002864 (0.27% variance)
+   
+   → Haiku results are highly consistent across time!
+
+================================================================================

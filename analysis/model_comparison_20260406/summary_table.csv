@@ -1,0 +1,5 @@
+Experiment,Model,Best BPB,Beats Baseline,Total Runs,Duration (min),Avg Run Time (s),Runs/Min
+haiku_run1,Haiku 4.5,1.041477,5.50%,27,119.2,264.8,0.23
+haiku_run2,Haiku 4.5,1.044341,5.24%,28,120.0,257.0,0.23
+sonnet,Sonnet 4.6,1.044216,5.25%,29,124.8,258.1,0.23
+opus,Opus 4.6,1.044304,5.24%,22,119.7,326.4,0.18

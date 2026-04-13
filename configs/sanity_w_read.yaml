@@ -1,0 +1,72 @@
+# §9.6 precondition sanity experiment — pre-registration.
+# This file is frozen BEFORE data collection. Do not edit after first run.
+
+experiment:
+  name: sanity_w_read
+  framework_reference: "BP_Revised_Draft.md §9.6"
+  level: 1                              # see docs/sanity_escalation_plan.md
+
+source_swarm_run:
+  path: "runs/experiment_exp_20260406_024115"
+  shared_memory_rel: "mode_swarm/shared_memory.jsonl"
+  provenance_model: "claude-sonnet-4-6"  # model that produced the W state — NOT the subject
+  cut_rule: "median_result_entry"        # truncate at timestamp of median (by ordinal) 'result' entry
+
+subject:
+  # Invoked via subprocess `claude --print --model <model>` (NOT the
+  # Anthropic SDK) so calls run on the Claude subscription.
+  # Temperature is NOT pinned: `claude --print` does not accept a
+  # --temperature flag; the CLI default applies. The value 1.0 below
+  # documents *intent*; the effective runtime value is whatever the
+  # claude CLI uses. Production config.json used temperature=null.
+  model: "claude-haiku-4-5-20251001"
+  nominal_temperature: 1.0
+  n_calls_per_condition: 300             # K = 300, each call produces one proposal
+  timeout_seconds: 180
+
+classifier:
+  # Same subprocess pattern. No temperature control available.
+  model: "claude-haiku-4-5-20251001"
+  timeout_seconds: 60
+
+bootstrap:
+  n_resamples: 2000
+  seed: 20260408
+
+pass_criterion:
+  primary: "abs(G_W_lower_95) > 0.1 AND CI excludes zero"
+  margin:  "CI excludes zero AND abs(G_W_lower_95) <= 0.1"
+  fail:    "CI includes zero"
+  entropy_bias_correction: "miller_madow"
+  units: "nats"
+
+taxonomy_coarse:
+  - optimizer
+  - lr_schedule
+  - architecture
+  - regularization
+  - data_pipeline
+  - init
+  - other
+
+taxonomy_fine:
+  - optimizer_type
+  - optimizer_hyperparameters
+  - lr_warmup
+  - lr_decay
+  - lr_peak
+  - lr_schedule_shape
+  - architecture_depth
+  - architecture_width
+  - architecture_block
+  - attention_variant
+  - regularization_dropout
+  - regularization_weight_decay
+  - regularization_other
+  - data_pipeline_order
+  - data_pipeline_augmentation
+  - data_pipeline_batching
+  - init_scheme
+  - init_scale
+  - precision_or_numerics
+  - other

@@ -1,0 +1,82 @@
+================================================================================
+LOSS CURVE ANALYSIS
+Training Loss Progression Across Models
+================================================================================
+
+LOSS STATISTICS BY MODEL:
+--------------------------------------------------------------------------------
+
+Haiku 4.5:
+  Total training steps: 29738
+  Initial loss: 9.010782
+  Final loss: 2.928076
+  Improvement: 6.082706
+  Improvement rate: 67.50%
+  Min loss: 2.896907
+  Max loss: 9.186603
+  Average loss: 3.498158
+  Std dev: 0.804109
+  Final BPB: 1.041477
+  Convergence at 50% steps: 94.4%
+
+Haiku 4.5 (Run 2):
+  Total training steps: 25685
+  Initial loss: 9.010771
+  Final loss: 2.964533
+  Improvement: 6.046238
+  Improvement rate: 67.10%
+  Min loss: 2.914334
+  Max loss: 9.215726
+  Average loss: 3.590371
+  Std dev: 0.846165
+  Final BPB: 1.044341
+  Convergence at 50% steps: 90.4%
+
+Sonnet 4.6:
+  Total training steps: 32970
+  Initial loss: 9.010771
+  Final loss: 2.912361
+  Improvement: 6.098410
+  Improvement rate: 67.68%
+  Min loss: 2.902913
+  Max loss: 9.215726
+  Average loss: 3.496965
+  Std dev: 0.780732
+  Final BPB: 1.044216
+  Convergence at 50% steps: 94.1%
+
+Opus 4.6:
+  Total training steps: 25233
+  Initial loss: 9.010807
+  Final loss: 2.935401
+  Improvement: 6.075406
+  Improvement rate: 67.42%
+  Min loss: 2.908683
+  Max loss: 9.186603
+  Average loss: 3.479304
+  Std dev: 0.768221
+  Final BPB: 1.044304
+  Convergence at 50% steps: 91.4%
+
+================================================================================
+COMPARATIVE ANALYSIS:
+--------------------------------------------------------------------------------
+
+Best loss decay: Sonnet 4.6
+  Improvement: 6.098410
+
+Worst loss decay: Haiku 4.5 (Run 2)
+  Improvement: 6.046238
+
+Difference: 0.052172
+
+================================================================================
+KEY INSIGHTS:
+--------------------------------------------------------------------------------
+
+1. LOSS TRAJECTORY: All models show consistent loss decay pattern
+2. CONVERGENCE SPEED: Compare how quickly models reach final loss
+3. STABILITY: Check for oscillations or instabilities during training
+4. FINAL STATE: Lower final loss correlates with better BPB
+
+================================================================================

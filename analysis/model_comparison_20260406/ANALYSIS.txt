@@ -1,0 +1,65 @@
+================================================================================
+CLAUDE MODEL PERFORMANCE COMPARISON ANALYSIS
+2-Agent Swarm Learning Experiment
+================================================================================
+
+OVERALL RANKINGS (by best BPB):
+--------------------------------------------------------------------------------
+1. Haiku 4.5    - Best BPB: 1.041477 (27 runs in 119 min)
+2. Sonnet 4.6   - Best BPB: 1.044216 (29 runs in 125 min)
+3. Opus 4.6     - Best BPB: 1.044304 (22 runs in 120 min)
+4. Haiku 4.5    - Best BPB: 1.044341 (28 runs in 120 min)
+
+COMPARISON BY MODEL:
+--------------------------------------------------------------------------------
+
+Haiku 4.5: (2 runs)
+  Best BPB (run 1): 1.041477
+  Best BPB (run 2): 1.044341
+  Average Best BPB: 1.042909 ± 0.001432
+  Avg Beats Baseline: 5.37%
+  Total Runs (both): 55
+  Avg Duration: 120 min
+  Avg Run Time: 260.9s
+
+Sonnet 4.6:
+  Experiments: 1
+  Best BPB: 1.044216
+  Beats Baseline: 5.25%
+  Total Runs: 29
+  Duration: 125 minutes
+  Avg Run Time: 258.1s
+  Efficiency: 0.23 runs/min
+
+Opus 4.6:
+  Experiments: 1
+  Best BPB: 1.044304
+  Beats Baseline: 5.24%
+  Total Runs: 22
+  Duration: 120 minutes
+  Avg Run Time: 326.4s
+  Efficiency: 0.18 runs/min
+
+================================================================================
+KEY FINDINGS:
+--------------------------------------------------------------------------------
+
+✓ BEST OVERALL: Haiku 4.5 (exp_20260405_022850)
+  BPB: 1.041477
+  Outperforms baseline by 5.50%
+
+✗ WORST OVERALL: Haiku 4.5 (exp_20260405_124604)
+  BPB: 1.044341
+  Difference from best: 0.002864
+
+⚡ MOST EFFICIENT: Haiku 4.5
+  0.23 runs/minute
+  Completed 28 runs in 120 min
+
+📊 QUALITY vs EFFICIENCY TRADE-OFF:
+
+  Haiku 4.5   : BPB=1.041477, Efficiency=0.23 runs/min, Quality/speed=4.5966
+  Sonnet 4.6  : BPB=1.044216, Efficiency=0.23 runs/min, Quality/speed=4.4919
+  Opus 4.6    : BPB=1.044304, Efficiency=0.18 runs/min, Quality/speed=5.6804
+
+================================================================================
